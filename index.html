@@ -17,6 +17,28 @@
         </header>
     </div>
     <img src="./icons/add-circle-outline.svg" alt="button icon" class="add-btn">
+    <dialog class="modal-menu">
+        <form class="modal-form" method="dialog"> 
+            <div class="modal-entry">
+                <label for="modal-album-name" class="modal-label">Album Name</label>
+                <input type="text" name="modal-album-name" id="modal-album-name" required>
+            </div>
+            <div class="modal-entry">
+                <label for="modal-artist-name" class="modal-label">Artist Name</label>
+                <input type="text" name="modal-artist-name" id="modal-artist-name" required>
+            </div>
+            <div class="modal-entry year-label">
+                <label for="modal-release-year" class="modal-label">Release Year</label>
+                <input type="number" name="modal-release-year" id="modal-release-year" required>
+                <p class="error-message"></p>
+            </div>
+            <div class="modal-entry">
+                <label for="modal-album-cover" class="modal-label">Album Cover URL</label>
+                <input type="text" name="modal-album-cover" id="modal-album-cover">
+            </div>
+            <input type="submit" value="Submit" class="modal-submit" formmethod="dialog">
+        </form>
+    </dialog>
     <main class="main-container">
     
         <div class="album-card">

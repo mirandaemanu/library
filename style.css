@@ -3,13 +3,11 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    
 }
 
 body {
     background-color: #F0EEF1;
-
-    
-    
 }
 
 
@@ -82,4 +80,49 @@ body {
     width: 160px;
     text-align: center;
     
+}
+
+.modal-menu {
+    position: absolute;
+    margin: auto;
+    border: none;
+    border-radius: 8px;
+    
+}
+
+.modal-entry {
+    margin-bottom: 10px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-form {
+    font-size: 13px;
+    width: 250px;
+    border: none;
+    padding: 30px;
+    
+    
+}
+
+.modal-submit {
+    width: 100%;
+    padding: 5px;
+    margin-top: 10px;
+    background: #06d6a0;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+
+.modal-entry>input {
+    padding: 3px 5px;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
+.error-message {
+    color: red;
+    font-size: 9px;
 }
