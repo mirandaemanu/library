@@ -21,11 +21,11 @@
         <form class="modal-form" method="dialog"> 
             <div class="modal-entry">
                 <label for="modal-album-name" class="modal-label">Album Name</label>
-                <input type="text" name="modal-album-name" id="modal-album-name" required>
+                <input type="text" name="modal-album-name" id="modal-album-name" maxlength="40" required>
             </div>
             <div class="modal-entry">
                 <label for="modal-artist-name" class="modal-label">Artist Name</label>
-                <input type="text" name="modal-artist-name" id="modal-artist-name" required>
+                <input type="text" name="modal-artist-name" id="modal-artist-name" maxlength="40" required>
             </div>
             <div class="modal-entry year-label">
                 <label for="modal-release-year" class="modal-label">Release Year</label>
@@ -43,9 +43,11 @@
     
         <div class="album-card">
             <img src="https://i.discogs.com/7yxfHtHp-sZ2YaIEtxw4_3cQXUUaiivqgqmgGkEfvXU/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTcyNTIx/MTEtMTQzOTg5NDcx/Ny02MTQyLmpwZWc.jpeg" alt="" class="album-cover">
-            <p class="album-title">Currents</p>
-            <p class="album-artist-name">Tame Impala</p>
-            <p class="album-release-date">2015</p>
+            <div class="card-text">
+                <p class="album-title">Currents</p>
+                <p class="album-artist-name">Tame Impala</p>
+                <p class="album-release-date">2015</p>
+            </div>
         </div>
     </main>
     

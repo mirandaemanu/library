@@ -3,9 +3,11 @@ const mainContainer = document.querySelector('.main-container');
 const modalMenu = document.querySelector('.modal-menu');
 const modalSubmit = document.querySelector('.modal-submit');
 
+
 function createAlbumCard(title, artistName, releaseDate, coverImageURL) {
 
     let albumCard = document.createElement('div');
+    let albumCardText = document.createElement('div');
     let albumCover = document.createElement('img'); 
     let albumTitle = document.createElement('p');
     let albumArtistName = document.createElement('p');
@@ -16,16 +18,31 @@ function createAlbumCard(title, artistName, releaseDate, coverImageURL) {
     albumTitle.classList.add("album-title");
     albumArtistName.classList.add("album-artist-name");
     releaseYear.classList.add("album-release-date");
+    albumCardText.classList.add("card-text");
+    
+
+    if(title.length > 13) {
+        albumTitle.style.setProperty("font-size", "10px");
+        albumArtistName.style.setProperty("font-size", "10px");
+        releaseYear.style.setProperty("font-size", "10px");
+    }
+
+    albumCover.addEventListener("error", (e) => {
+         e.target.src = "https://oakforest.management/wp-content/themes/realestate-7/images/no-image.png";
+         e.onerror = null;
+    })
 
     albumCover.src = coverImageURL;
     albumTitle.innerText = title;
     albumArtistName.innerText = artistName;
     releaseYear.innerText = releaseDate;
 
+    
+    albumCardText.appendChild(albumTitle);
+    albumCardText.appendChild(albumArtistName);
+    albumCardText.appendChild(releaseYear);
     albumCard.appendChild(albumCover);
-    albumCard.appendChild(albumTitle);
-    albumCard.appendChild(albumArtistName);
-    albumCard.appendChild(releaseYear);
+    albumCard.appendChild(albumCardText);
 
     return albumCard;
 
@@ -76,9 +93,7 @@ modalSubmit.addEventListener('click', (e) => {
     mainContainer.appendChild(albumCard);
 
     modalMenuReset();
-
-   
-
 })
+
 
 

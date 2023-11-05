@@ -54,23 +54,31 @@ body {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
     max-width: 200px;
     min-width: 165px;
+    height: 260px;
     padding: 10px;
     border-radius: 8px;
     font-size: 14px;
+    overflow-y: auto;
+    overflow-x: hidden;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px
+    gap: 2px
 }
 
 .album-title {
     font-weight: 600;
+    
 }
 
 .album-cover {
-    height: 160px;
+    min-height: 160px;
+    width: 160px;
+    
 }
+
+
 
 .album-artist-name, .album-release-date {
     font-size: 12px;
@@ -79,6 +87,8 @@ body {
 .album-artist-name, .album-title {
     width: 160px;
     text-align: center;
+    word-wrap: break-word;
+    text-transform: capitalize;
     
 }
 
@@ -125,4 +135,13 @@ body {
 .error-message {
     color: red;
     font-size: 9px;
+}
+
+.card-text {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
