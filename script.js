@@ -61,12 +61,18 @@ function createAlbumCard(title, artistName, releaseDate, coverImageURL) {
 function modalMenuReset() {
     let userReleaseYearInput = document.querySelector('#modal-release-year');
     let errorMessage = document.querySelector('.error-message');
+    let userAlbumTitleInput = document.querySelector('#modal-album-name');
+    let userArtistNameInput = document.querySelector('#modal-artist-name');
 
     document.querySelector('.modal-form').reset();
     modalMenu.close();
     errorMessage.textContent = '';
     userReleaseYearInput.style.setProperty('border', '1px solid grey');
-
+    userAlbumTitleInput.style.setProperty('border', '1px solid grey');
+    userAlbumTitleInput.placeholder = "";
+    
+    userArtistNameInput.style.setProperty('border', '1px solid grey');
+    userArtistNameInput.placeholder = "";
 }
 
 addBtn.addEventListener('click', () => {
@@ -89,15 +95,38 @@ modalSubmit.addEventListener('click', (e) => {
         albumCoverURL: userAlbumCoverURL.value
     };
 
+    console.log(userAlbumTitleInput.value);
     
+    if((userReleaseYearInput.value > currentYear || userReleaseYearInput.value < 1) || userAlbumTitleInput.value == "" || userArtistNameInput.value == "" ) {
 
-    if(userReleaseYearInput.value > currentYear || userReleaseYearInput.value < 1) {
-        userReleaseYearInput.style.setProperty('border', '1px solid red');
-        
-        errorMessage.innerText = (userReleaseYearInput.value > 0) ? "*Release year can't be greater than current year":"*Can't use negative numbers here..";
-        document.querySelector('.year-label').appendChild(errorMessage);
+        if(userReleaseYearInput.value > currentYear || userReleaseYearInput.value < 1) {
+            userReleaseYearInput.style.setProperty('border', '1px solid red');
+            
+            errorMessage.innerText = (userReleaseYearInput.value > 0) ? "*Release year can't be greater than current year":"*Can't use negative numbers here..";
+            document.querySelector('.year-label').appendChild(errorMessage);
+        }
+    
+        if(userAlbumTitleInput.value == "") {
+            userAlbumTitleInput.style.setProperty("border", "1px solid red");
+            userAlbumTitleInput.placeholder = "Album title is required!";
+        }
+    
+    
+        if(userArtistNameInput.value == "") {
+            userArtistNameInput.style.setProperty("border", "1px solid red");
+            userArtistNameInput.placeholder = "Artist name is required!";
+        }
+
         return;
     }
+
+    if(!/^\d+$/.test(userReleaseYearInput.value)) {
+        userReleaseYearInput.style.setProperty('border', '1px solid red');
+        errorMessage.textContent = "*Release year should be an INTEGER number";
+        return;
+    }
+
+   
 
     let albumCard = createAlbumCard(userAlbumData.albumTitle, userAlbumData.artistName, userAlbumData.releaseYear, userAlbumData.albumCoverURL);
     mainContainer.appendChild(albumCard);
