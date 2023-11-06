@@ -191,5 +191,12 @@ body {
 }
 
 .footer-icon {
-    height: 20px;
+    height: 22px;
+    transition: 0.4s ease;
+}
+
+.footer-icon:hover {
+    
+    transform: rotate(360deg) scale(1.3);
+
 }
