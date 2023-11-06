@@ -2,6 +2,7 @@ const addBtn = document.querySelector('.add-btn');
 const mainContainer = document.querySelector('.main-container');
 const modalMenu = document.querySelector('.modal-menu');
 const modalSubmit = document.querySelector('.modal-submit');
+const delBtn = document.querySelector('.del-btn');
 
 
 function createAlbumCard(title, artistName, releaseDate, coverImageURL) {
@@ -12,6 +13,8 @@ function createAlbumCard(title, artistName, releaseDate, coverImageURL) {
     let albumTitle = document.createElement('p');
     let albumArtistName = document.createElement('p');
     let releaseYear = document.createElement('p');
+    let deleteButton = document.createElement('div');
+    let deleteButtonIcon = document.createElement('img');
 
     albumCard.classList.add("album-card");
     albumCover.classList.add("album-cover");
@@ -19,9 +22,11 @@ function createAlbumCard(title, artistName, releaseDate, coverImageURL) {
     albumArtistName.classList.add("album-artist-name");
     releaseYear.classList.add("album-release-date");
     albumCardText.classList.add("card-text");
+    deleteButton.classList.add("del-btn");
+    
     
 
-    if(title.length > 13) {
+    if(title.length > 20) {
         albumTitle.style.setProperty("font-size", "10px");
         albumArtistName.style.setProperty("font-size", "10px");
         releaseYear.style.setProperty("font-size", "10px");
@@ -30,6 +35,10 @@ function createAlbumCard(title, artistName, releaseDate, coverImageURL) {
     albumCover.addEventListener("error", (e) => {
          e.target.src = "https://oakforest.management/wp-content/themes/realestate-7/images/no-image.png";
          e.onerror = null;
+    })
+
+    deleteButton.addEventListener("click", (e) => {
+        e.target.parentNode.remove();
     })
 
     albumCover.src = coverImageURL;
@@ -41,6 +50,7 @@ function createAlbumCard(title, artistName, releaseDate, coverImageURL) {
     albumCardText.appendChild(albumTitle);
     albumCardText.appendChild(albumArtistName);
     albumCardText.appendChild(releaseYear);
+    albumCard.appendChild(deleteButton);
     albumCard.appendChild(albumCover);
     albumCard.appendChild(albumCardText);
 
@@ -96,4 +106,8 @@ modalSubmit.addEventListener('click', (e) => {
 })
 
 
+
+delBtn.addEventListener('click', (e) => {
+    e.target.parentNode.remove();
+})
 
